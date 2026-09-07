@@ -1,8 +1,4 @@
-# Local task notes
-TASK.md
-
 # Generated local tooling files
-.codegraph/
 __pycache__/
 *.py[cod]
 
