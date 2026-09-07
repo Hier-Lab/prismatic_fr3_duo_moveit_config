@@ -1,0 +1,111 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+# Isaac Sim state feedback can arrive several update cycles after a command.
+# Leave enough time for the gripper action controller to reach its goal or
+# report a successful contact stall before MoveIt cancels the action.
+trajectory_execution:
+  # Allow small Isaac/ROS state-update drift between planning and execution.
+  allowed_start_tolerance: 0.1
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.2
+
+moveit_simple_controller_manager:
+  controller_names:
+    # - left_arm_controller
+    - dual_arm_controller
+    - dual_arm_controller_wbc
+    - left_hand_controller
+    - right_hand_controller
+    # - whole_body_trajectory_controller
+    # - whole_body_controller  # Direct effort controller; no FollowJointTrajectory action.
+    # - right_arm_controller
+    # - base_controller
+
+  left_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - left_fr3_joint1
+      - left_fr3_joint2
+      - left_fr3_joint3
+      - left_fr3_joint4
+      - left_fr3_joint5
+      - left_fr3_joint6
+      - left_fr3_joint7
+  dual_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - left_fr3_joint1
+      - left_fr3_joint2
+      - left_fr3_joint3
+      - left_fr3_joint4
+      - left_fr3_joint5
+      - left_fr3_joint6
+      - left_fr3_joint7
+      - right_fr3_joint1
+      - right_fr3_joint2
+      - right_fr3_joint3
+      - right_fr3_joint4
+      - right_fr3_joint5
+      - right_fr3_joint6
+      - right_fr3_joint7
+  whole_body_trajectory_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - base_slider_joint
+      - left_fr3_joint1
+      - left_fr3_joint2
+      - left_fr3_joint3
+      - left_fr3_joint4
+      - left_fr3_joint5
+      - left_fr3_joint6
+      - left_fr3_joint7
+      - right_fr3_joint1
+      - right_fr3_joint2
+      - right_fr3_joint3
+      - right_fr3_joint4
+      - right_fr3_joint5
+      - right_fr3_joint6
+      - right_fr3_joint7
+  right_arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - right_fr3_joint1
+      - right_fr3_joint2
+      - right_fr3_joint3
+      - right_fr3_joint4
+      - right_fr3_joint5
+      - right_fr3_joint6
+      - right_fr3_joint7
+  base_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - base_slider_joint
+  left_hand_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - left_fr3_finger_joint1
+  right_hand_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    joints:
+      - right_fr3_finger_joint1
+
+  # right_hand_controller:
+  #   type: GripperCommand
+  #   action_ns: gripper_cmd
+  #   joints:
+  #     - right_fr3_finger_joint1
+
+  # left_hand_controller:
+  #     action_ns: follow_joint_trajectory
+  #     type: FollowJointTrajectory
+  #     joints:
+  #       - left_fr3_finger_joint1

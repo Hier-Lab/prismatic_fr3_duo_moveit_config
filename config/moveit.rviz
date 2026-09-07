@@ -1,0 +1,1446 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 138
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /MotionPlanning1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
+        - /Axes1
+        - /TF1
+        - /TF1/Frames1
+        - /Pose1
+        - /Pose2
+        - /Trajectory1
+        - /Marker1
+        - /Marker2
+        - /Path1
+        - /Path1/Topic1
+        - /Path2
+        - /Path2/Topic1
+        - /MarkerArray1
+        - /MarkerArray1/Topic1
+      Splitter Ratio: 0.5
+    Tree Height: 438
+  - Class: rviz_common/Help
+    Name: Help
+  - Class: rviz_common/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Acceleration_Scaling_Factor: 0.1
+      Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: false
+      MoveIt_Allow_External_Program: false
+      MoveIt_Allow_Replanning: false
+      MoveIt_Allow_Sensor_Positioning: false
+      MoveIt_Planning_Attempts: 10
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Cartesian_Path: false
+      MoveIt_Use_Constraint_Aware_IK: false
+      MoveIt_Workspace:
+        Center:
+          X: 0
+          Y: 0
+          Z: 0
+        Size:
+          X: 2
+          Y: 2
+          Z: 2
+      Name: MotionPlanning
+      Planned Path:
+        Color Enabled: false
+        Interrupt Display: false
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_hand:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_hand_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link0_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link0_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link1_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link1_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link2_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link2_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link3_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link3_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link4_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link4_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link5_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link5_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rail_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_hand:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_hand_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link0_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link0_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link1_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link1_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link2_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link2_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link3_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link3_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link4_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link4_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link5_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link5_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Robot Color: 150; 50; 150
+        Show Robot Collision: false
+        Show Robot Visual: false
+        Show Trail: false
+        State Display Time: 0.05 s
+        Trail Step Size: 1
+        Trajectory Topic: display_planned_path
+        Use Sim Time: false
+      Planning Metrics:
+        Payload: 1
+        Show Joint Torques: false
+        Show Manipulability: false
+        Show Manipulability Index: false
+        Show Weight Limit: false
+        TextHeight: 0.07999999821186066
+      Planning Request:
+        Colliding Link Color: 255; 0; 0
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Joint Violation Color: 255; 0; 255
+        Planning Group: dual_arm
+        Query Goal State: false
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 1
+        Scene Color: 50; 230; 50
+        Scene Display Time: 0.009999999776482582
+        Show Scene Geometry: false
+        Voxel Coloring: Z-Axis
+        Voxel Rendering: Occupied Voxels
+      Scene Robot:
+        Attached Body Color: 150; 50; 150
+        Links:
+          All Links Enabled: true
+          Expand Joint Details: false
+          Expand Link Details: false
+          Expand Tree: false
+          Link Tree Style: Links in Alphabetic Order
+          base_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_hand:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_hand_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link0_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link0_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link1_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link1_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link2_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link2_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link3_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link3_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link4_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link4_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link5_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link5_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_link6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_link8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          left_fr3_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          rail_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_hand:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_hand_tcp:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link0_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link0_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link1:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link1_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link1_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link2:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link2_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link2_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link3:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link3_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link3_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link4:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link4_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link4_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link5:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link5_accelerometer_bottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link5_accelerometer_top:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_link6:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link7:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_link8:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          right_fr3_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+      Velocity_Scaling_Factor: 0.1
+    - Class: rviz_default_plugins/Axes
+      Enabled: true
+      Length: 0.20000000298023224
+      Name: Axes
+      Radius: 0.05000000074505806
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: false
+        egocentric_camera_color_optical_frame:
+          Value: true
+        left_fr3_hand:
+          Value: false
+        left_fr3_hand_tcp:
+          Value: true
+        left_fr3_leftfinger:
+          Value: false
+        left_fr3_link0:
+          Value: false
+        left_fr3_link0_accelerometer_bottom:
+          Value: false
+        left_fr3_link0_accelerometer_top:
+          Value: false
+        left_fr3_link1:
+          Value: false
+        left_fr3_link1_accelerometer_bottom:
+          Value: false
+        left_fr3_link1_accelerometer_top:
+          Value: false
+        left_fr3_link2:
+          Value: false
+        left_fr3_link2_accelerometer_bottom:
+          Value: false
+        left_fr3_link2_accelerometer_top:
+          Value: false
+        left_fr3_link3:
+          Value: false
+        left_fr3_link3_accelerometer_bottom:
+          Value: false
+        left_fr3_link3_accelerometer_top:
+          Value: false
+        left_fr3_link4:
+          Value: false
+        left_fr3_link4_accelerometer_bottom:
+          Value: false
+        left_fr3_link4_accelerometer_top:
+          Value: false
+        left_fr3_link5:
+          Value: false
+        left_fr3_link5_accelerometer_bottom:
+          Value: false
+        left_fr3_link5_accelerometer_top:
+          Value: false
+        left_fr3_link6:
+          Value: false
+        left_fr3_link7:
+          Value: false
+        left_fr3_link8:
+          Value: false
+        left_fr3_rightfinger:
+          Value: false
+        left_handeye_camera_color_optical_frame:
+          Value: false
+        rail_link:
+          Value: false
+        right_fr3_hand:
+          Value: false
+        right_fr3_hand_tcp:
+          Value: true
+        right_fr3_leftfinger:
+          Value: false
+        right_fr3_link0:
+          Value: false
+        right_fr3_link0_accelerometer_bottom:
+          Value: false
+        right_fr3_link0_accelerometer_top:
+          Value: false
+        right_fr3_link1:
+          Value: false
+        right_fr3_link1_accelerometer_bottom:
+          Value: false
+        right_fr3_link1_accelerometer_top:
+          Value: false
+        right_fr3_link2:
+          Value: false
+        right_fr3_link2_accelerometer_bottom:
+          Value: false
+        right_fr3_link2_accelerometer_top:
+          Value: false
+        right_fr3_link3:
+          Value: false
+        right_fr3_link3_accelerometer_bottom:
+          Value: false
+        right_fr3_link3_accelerometer_top:
+          Value: false
+        right_fr3_link4:
+          Value: false
+        right_fr3_link4_accelerometer_bottom:
+          Value: false
+        right_fr3_link4_accelerometer_top:
+          Value: false
+        right_fr3_link5:
+          Value: false
+        right_fr3_link5_accelerometer_bottom:
+          Value: false
+        right_fr3_link5_accelerometer_top:
+          Value: false
+        right_fr3_link6:
+          Value: false
+        right_fr3_link7:
+          Value: false
+        right_fr3_link8:
+          Value: false
+        right_fr3_rightfinger:
+          Value: false
+        right_handeye_camera_color_optical_frame:
+          Value: false
+        scan_center:
+          Value: true
+        scan_left_camera_target_001:
+          Value: true
+        scan_left_camera_target_001_tcp:
+          Value: true
+        scan_left_camera_target_002:
+          Value: true
+        scan_left_camera_target_002_tcp:
+          Value: true
+        scan_left_camera_target_003:
+          Value: true
+        scan_left_camera_target_003_tcp:
+          Value: true
+        scan_left_camera_target_004:
+          Value: true
+        scan_left_camera_target_004_tcp:
+          Value: true
+        scan_left_camera_target_005:
+          Value: true
+        scan_left_camera_target_005_tcp:
+          Value: true
+        scan_left_camera_target_006:
+          Value: true
+        scan_left_camera_target_006_tcp:
+          Value: true
+        scan_left_camera_target_007:
+          Value: true
+        scan_left_camera_target_007_tcp:
+          Value: true
+        scan_left_camera_target_008:
+          Value: true
+        scan_left_camera_target_008_tcp:
+          Value: true
+        scan_left_camera_target_009:
+          Value: true
+        scan_left_camera_target_009_tcp:
+          Value: true
+        scan_left_camera_target_010:
+          Value: true
+        scan_left_camera_target_010_tcp:
+          Value: true
+        scan_left_camera_target_011:
+          Value: true
+        scan_left_camera_target_011_tcp:
+          Value: true
+        scan_right_camera_target_001:
+          Value: true
+        scan_right_camera_target_001_tcp:
+          Value: true
+        scan_right_camera_target_002:
+          Value: true
+        scan_right_camera_target_002_tcp:
+          Value: true
+        scan_right_camera_target_003:
+          Value: true
+        scan_right_camera_target_003_tcp:
+          Value: true
+        scan_right_camera_target_004:
+          Value: true
+        scan_right_camera_target_004_tcp:
+          Value: true
+        scan_right_camera_target_005:
+          Value: true
+        scan_right_camera_target_005_tcp:
+          Value: true
+        scan_right_camera_target_006:
+          Value: true
+        scan_right_camera_target_006_tcp:
+          Value: true
+        scan_right_camera_target_007:
+          Value: true
+        scan_right_camera_target_007_tcp:
+          Value: true
+        scan_right_camera_target_008:
+          Value: true
+        scan_right_camera_target_008_tcp:
+          Value: true
+        scan_right_camera_target_009:
+          Value: true
+        scan_right_camera_target_009_tcp:
+          Value: true
+        scan_right_camera_target_010:
+          Value: true
+        scan_right_camera_target_010_tcp:
+          Value: true
+        scan_right_camera_target_011:
+          Value: true
+        scan_right_camera_target_011_tcp:
+          Value: true
+        world:
+          Value: false
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        world:
+          rail_link:
+            base_link:
+              egocentric_camera_color_optical_frame:
+                {}
+              left_fr3_link0:
+                left_fr3_link0_accelerometer_bottom:
+                  {}
+                left_fr3_link0_accelerometer_top:
+                  {}
+                left_fr3_link1:
+                  left_fr3_link1_accelerometer_bottom:
+                    {}
+                  left_fr3_link1_accelerometer_top:
+                    {}
+                  left_fr3_link2:
+                    left_fr3_link2_accelerometer_bottom:
+                      {}
+                    left_fr3_link2_accelerometer_top:
+                      {}
+                    left_fr3_link3:
+                      left_fr3_link3_accelerometer_bottom:
+                        {}
+                      left_fr3_link3_accelerometer_top:
+                        {}
+                      left_fr3_link4:
+                        left_fr3_link4_accelerometer_bottom:
+                          {}
+                        left_fr3_link4_accelerometer_top:
+                          {}
+                        left_fr3_link5:
+                          left_fr3_link5_accelerometer_bottom:
+                            {}
+                          left_fr3_link5_accelerometer_top:
+                            {}
+                          left_fr3_link6:
+                            left_fr3_link7:
+                              left_fr3_link8:
+                                left_fr3_hand:
+                                  left_fr3_hand_tcp:
+                                    {}
+                                  left_fr3_leftfinger:
+                                    {}
+                                  left_fr3_rightfinger:
+                                    {}
+                                  left_handeye_camera_color_optical_frame:
+                                    {}
+              right_fr3_link0:
+                right_fr3_link0_accelerometer_bottom:
+                  {}
+                right_fr3_link0_accelerometer_top:
+                  {}
+                right_fr3_link1:
+                  right_fr3_link1_accelerometer_bottom:
+                    {}
+                  right_fr3_link1_accelerometer_top:
+                    {}
+                  right_fr3_link2:
+                    right_fr3_link2_accelerometer_bottom:
+                      {}
+                    right_fr3_link2_accelerometer_top:
+                      {}
+                    right_fr3_link3:
+                      right_fr3_link3_accelerometer_bottom:
+                        {}
+                      right_fr3_link3_accelerometer_top:
+                        {}
+                      right_fr3_link4:
+                        right_fr3_link4_accelerometer_bottom:
+                          {}
+                        right_fr3_link4_accelerometer_top:
+                          {}
+                        right_fr3_link5:
+                          right_fr3_link5_accelerometer_bottom:
+                            {}
+                          right_fr3_link5_accelerometer_top:
+                            {}
+                          right_fr3_link6:
+                            right_fr3_link7:
+                              right_fr3_link8:
+                                right_fr3_hand:
+                                  right_fr3_hand_tcp:
+                                    {}
+                                  right_fr3_leftfinger:
+                                    {}
+                                  right_fr3_rightfinger:
+                                    {}
+                                  right_handeye_camera_color_optical_frame:
+                                    {}
+          scan_center:
+            scan_left_camera_target_001:
+              {}
+            scan_left_camera_target_001_tcp:
+              {}
+            scan_left_camera_target_002:
+              {}
+            scan_left_camera_target_002_tcp:
+              {}
+            scan_left_camera_target_003:
+              {}
+            scan_left_camera_target_003_tcp:
+              {}
+            scan_left_camera_target_004:
+              {}
+            scan_left_camera_target_004_tcp:
+              {}
+            scan_left_camera_target_005:
+              {}
+            scan_left_camera_target_005_tcp:
+              {}
+            scan_left_camera_target_006:
+              {}
+            scan_left_camera_target_006_tcp:
+              {}
+            scan_left_camera_target_007:
+              {}
+            scan_left_camera_target_007_tcp:
+              {}
+            scan_left_camera_target_008:
+              {}
+            scan_left_camera_target_008_tcp:
+              {}
+            scan_left_camera_target_009:
+              {}
+            scan_left_camera_target_009_tcp:
+              {}
+            scan_left_camera_target_010:
+              {}
+            scan_left_camera_target_010_tcp:
+              {}
+            scan_left_camera_target_011:
+              {}
+            scan_left_camera_target_011_tcp:
+              {}
+            scan_right_camera_target_001:
+              {}
+            scan_right_camera_target_001_tcp:
+              {}
+            scan_right_camera_target_002:
+              {}
+            scan_right_camera_target_002_tcp:
+              {}
+            scan_right_camera_target_003:
+              {}
+            scan_right_camera_target_003_tcp:
+              {}
+            scan_right_camera_target_004:
+              {}
+            scan_right_camera_target_004_tcp:
+              {}
+            scan_right_camera_target_005:
+              {}
+            scan_right_camera_target_005_tcp:
+              {}
+            scan_right_camera_target_006:
+              {}
+            scan_right_camera_target_006_tcp:
+              {}
+            scan_right_camera_target_007:
+              {}
+            scan_right_camera_target_007_tcp:
+              {}
+            scan_right_camera_target_008:
+              {}
+            scan_right_camera_target_008_tcp:
+              {}
+            scan_right_camera_target_009:
+              {}
+            scan_right_camera_target_009_tcp:
+              {}
+            scan_right_camera_target_010:
+              {}
+            scan_right_camera_target_010_tcp:
+              {}
+            scan_right_camera_target_011:
+              {}
+            scan_right_camera_target_011_tcp:
+              {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Axes Length: 0.10000000149011612
+      Axes Radius: 0.009999999776482582
+      Class: rviz_default_plugins/Pose
+      Color: 255; 25; 0
+      Enabled: false
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dual_arm_controller_wbc/target_pose/left
+      Value: false
+    - Alpha: 1
+      Axes Length: 0.10000000149011612
+      Axes Radius: 0.009999999776482582
+      Class: rviz_default_plugins/Pose
+      Color: 255; 25; 0
+      Enabled: false
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dual_arm_controller_wbc/target_pose/right
+      Value: false
+    - Class: moveit_rviz_plugin/Trajectory
+      Color Enabled: false
+      Enabled: true
+      Interrupt Display: false
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_leftfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link0_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link0_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link1_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link1_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link2_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link2_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link3_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link3_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link4_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link4_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link5_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link5_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_link8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        left_fr3_rightfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rail_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_hand:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_hand_tcp:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_leftfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link0_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link0_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link1_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link1_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link2_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link2_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link3_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link3_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link4_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link4_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link5_accelerometer_bottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link5_accelerometer_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_link8:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_fr3_rightfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Loop Animation: false
+      Name: Trajectory
+      Robot Alpha: 0.5
+      Robot Color: 150; 50; 150
+      Robot Description: robot_description
+      Show Robot Collision: false
+      Show Robot Visual: false
+      Show Trail: false
+      State Display Time: 3x
+      Trail Step Size: 1
+      Trajectory Topic: /display_planned_path
+      Use Sim Time: false
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Marker
+      Namespaces:
+        planned_ee_waypoints: true
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /display_planned_waypoints/left_ee
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Marker
+      Namespaces:
+        planned_ee_waypoints: true
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /display_planned_waypoints/right_ee
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep All
+        Reliability Policy: Reliable
+        Value: /scan/left_camera_path
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan/right_camera_path
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan/trajectory_before_2opt
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: rail_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.8339807987213135
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: -0.05167779326438904
+        Y: -0.026342548429965973
+        Z: 0.3693258762359619
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.8947975635528564
+      Target Frame: rail_link
+      Value: Orbit (rviz_default_plugins)
+      Yaw: 5.895148754119873
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1868
+  Help:
+    collapsed: false
+  Hide Left Dock: false
+  Hide Right Dock: false
+  MotionPlanning:
+    collapsed: false
+  MotionPlanning - Trajectory Slider:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000003a3000006b0fc0200000007fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00fffffffb000000100044006900730070006c006100790073010000006e000002ae0000018200fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000328000002b8000002b800fffffffb0000000800480065006c0070000000029a0000006e000000d400fffffffb0000000a0056006900650077007301000005ec000001320000013200fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00ffffff0000025a000006b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Trajectory - Trajectory Slider:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1545
+  X: 2442
+  Y: 234

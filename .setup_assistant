@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: prismatic_fr3_duo_description
+    relative_path: urdf/prismatic_fr3_duo.urdf
+  srdf:
+    relative_path: config/prismatic_fr3_duo.srdf
+  package_settings:
+    author_name: hierlab
+    author_email: hierlab@ncsu.edu
+    generated_timestamp: 1787018528
