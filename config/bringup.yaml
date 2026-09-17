@@ -1,0 +1,60 @@
+# Edit this file instead of passing robot-specific values on the command line.
+robots:
+  left:
+    ip: "CHANGE_ME_LEFT_FR3_IP"
+    prefix: "left_"
+  right:
+    ip: "CHANGE_ME_RIGHT_FR3_IP"
+    prefix: "right_"
+
+simulation:
+  # Supported values: fake, isaac
+  hardware_mode: "isaac"
+  use_sim_time: true
+  controller_manager_update_rate: 500
+  use_rviz: true
+  debug: false
+  active_controllers:
+    - joint_state_broadcaster
+    - dual_arm_controller_wbc
+    - left_hand_controller
+    - right_hand_controller
+  inactive_controllers:
+    - dual_arm_controller
+    - base_controller
+    - left_arm_controller
+    - right_arm_controller
+    - left_cartesian_controller
+    - right_cartesian_controller
+    - whole_body_controller
+
+real_hardware:
+  hardware_mode: "real"
+  use_sim_time: false
+  controller_manager_update_rate: 1000
+  controller_manager_thread_priority: 98
+  hardware_is_async: true
+  hardware_thread_priority: 80
+  joint_state_publish_rate: 100
+  start_grippers: true
+  active_controllers:
+    - joint_state_broadcaster
+    - left_franka_robot_state_broadcaster
+    - right_franka_robot_state_broadcaster
+    - dual_arm_controller
+  inactive_controllers:
+    - base_controller
+    - left_arm_controller
+    - right_arm_controller
+    - dual_arm_controller_wbc
+    - left_cartesian_controller
+    - right_cartesian_controller
+    - whole_body_controller
+
+moveit:
+  use_sim_time: true
+  use_rviz: true
+  debug: false
+  allow_trajectory_execution: true
+  publish_frequency: 60.0
+  publish_monitored_planning_scene: true

@@ -268,8 +268,14 @@ def generate_launch_description():
     # )
 
     # Spawn the controllers as defined in the ros2_controllers.yaml file
-    controller_names = moveit_config.trajectory_execution.get(
-        "moveit_simple_controller_manager", {}).get("controller_names", []) + ["joint_state_broadcaster"]
+    # Only activate mutually compatible controllers; alternatives remain available via setup.launch.py.
+    controller_names = [
+        "joint_state_broadcaster",
+        "dual_arm_controller",
+        "base_controller",
+        "left_hand_controller",
+        "right_hand_controller",
+    ]
     controller_spawners = [
         Node(
             package="controller_manager",

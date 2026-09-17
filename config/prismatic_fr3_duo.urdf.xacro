@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prismatic_fr3_duo">
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
-    <xacro:arg name="use_isaac" default="true" />
+    <xacro:arg name="hardware_mode" default="isaac" />
+    <xacro:arg name="left_robot_ip" default="" />
+    <xacro:arg name="right_robot_ip" default="" />
+    <xacro:arg name="left_arm_prefix" default="left_" />
+    <xacro:arg name="right_arm_prefix" default="right_" />
+    <xacro:arg name="is_async" default="false" />
+    <xacro:arg name="thread_priority" default="80" />
 
     <!-- Import prismatic_fr3_duo urdf file -->
     <xacro:include filename="$(find prismatic_fr3_duo_description)/urdf/prismatic_fr3_duo.urdf" />
@@ -10,6 +16,15 @@
     <xacro:include filename="prismatic_fr3_duo.ros2_control.xacro" />
 
 
-    <xacro:prismatic_fr3_duo_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)" use_isaac="$(arg use_isaac)"/>
+    <xacro:prismatic_fr3_duo_ros2_control
+      name="DualArmSimulationSystem"
+      initial_positions_file="$(arg initial_positions_file)"
+      hardware_mode="$(arg hardware_mode)"
+      left_robot_ip="$(arg left_robot_ip)"
+      right_robot_ip="$(arg right_robot_ip)"
+      left_arm_prefix="$(arg left_arm_prefix)"
+      right_arm_prefix="$(arg right_arm_prefix)"
+      is_async="$(arg is_async)"
+      thread_priority="$(arg thread_priority)"/>
 
 </robot>
