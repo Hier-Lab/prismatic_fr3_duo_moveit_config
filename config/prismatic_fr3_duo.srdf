@@ -116,6 +116,7 @@
     <disable_collisions link1="base_link" link2="right_fr3_link3" reason="Never"/>
     <disable_collisions link1="base_link" link2="right_fr3_link4" reason="Never"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link4" reason="Never"/>
+    <disable_collisions link1="left_fr3_hand" link2="left_fr3_link5" reason="Never"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link6" reason="Never"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link1" link2="left_fr3_link2" reason="Adjacent"/>
@@ -143,6 +144,7 @@
     <disable_collisions link1="left_fr3_link5" link2="left_fr3_link6" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link6" link2="left_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="right_fr3_hand" link2="right_fr3_link5" reason="Never"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link6" reason="Never"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link1" link2="right_fr3_link2" reason="Adjacent"/>
