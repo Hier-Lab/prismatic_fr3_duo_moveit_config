@@ -81,7 +81,7 @@
         <joint name="right_fr3_joint7" value="0.785398"/>
     </group_state>
     <group_state name="ready" group="whole_body">
-        <!-- <joint name="base_slider_joint" value="0"/> -->
+        <joint name="base_slider_joint" value="0"/>
         <joint name="left_fr3_joint1" value="0"/>
         <joint name="left_fr3_joint2" value="-0.785398"/>
         <joint name="left_fr3_joint3" value="0"/>
@@ -100,8 +100,7 @@
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="left_ee" parent_link="left_fr3_hand_tcp" group="left_hand"/>
     <end_effector name="right_ee" parent_link="right_fr3_hand_tcp" group="right_hand"/>
-    <!-- Fixed SRDF virtual joints define frames but cannot contain an origin.
-         The launch files load world->rail_link XYZ/RPY from the description package's kinematics.yaml. -->
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="rail_link"/>
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="left_fr3_finger_joint2"/>
@@ -115,7 +114,9 @@
     <disable_collisions link1="base_link" link2="right_fr3_link2" reason="Never"/>
     <disable_collisions link1="base_link" link2="right_fr3_link3" reason="Never"/>
     <disable_collisions link1="base_link" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="base_link" link2="table_surface" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link4" reason="Never"/>
+    <disable_collisions link1="left_fr3_hand" link2="left_fr3_link5" reason="Never"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link6" reason="Never"/>
     <disable_collisions link1="left_fr3_hand" link2="left_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link1" link2="left_fr3_link2" reason="Adjacent"/>
@@ -125,16 +126,20 @@
     <disable_collisions link1="left_fr3_link1" link2="right_fr3_link2" reason="Never"/>
     <disable_collisions link1="left_fr3_link1" link2="right_fr3_link3" reason="Never"/>
     <disable_collisions link1="left_fr3_link1" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="left_fr3_link1" link2="table_surface" reason="Never"/>
     <disable_collisions link1="left_fr3_link2" link2="left_fr3_link3" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link2" link2="left_fr3_link4" reason="Never"/>
     <disable_collisions link1="left_fr3_link2" link2="right_fr3_link1" reason="Never"/>
     <disable_collisions link1="left_fr3_link2" link2="right_fr3_link2" reason="Never"/>
     <disable_collisions link1="left_fr3_link2" link2="right_fr3_link3" reason="Never"/>
     <disable_collisions link1="left_fr3_link2" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="left_fr3_link2" link2="table_surface" reason="Never"/>
     <disable_collisions link1="left_fr3_link3" link2="left_fr3_link4" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link3" link2="left_fr3_link6" reason="Never"/>
     <disable_collisions link1="left_fr3_link3" link2="right_fr3_link1" reason="Never"/>
     <disable_collisions link1="left_fr3_link3" link2="right_fr3_link2" reason="Never"/>
+    <disable_collisions link1="left_fr3_link3" link2="right_fr3_link3" reason="Never"/>
+    <disable_collisions link1="left_fr3_link3" link2="table_surface" reason="Never"/>
     <disable_collisions link1="left_fr3_link4" link2="left_fr3_link5" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link4" link2="left_fr3_link6" reason="Never"/>
     <disable_collisions link1="left_fr3_link4" link2="left_fr3_link7" reason="Never"/>
@@ -143,15 +148,19 @@
     <disable_collisions link1="left_fr3_link5" link2="left_fr3_link6" reason="Adjacent"/>
     <disable_collisions link1="left_fr3_link6" link2="left_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="right_fr3_hand" link2="right_fr3_link5" reason="Never"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link6" reason="Never"/>
     <disable_collisions link1="right_fr3_hand" link2="right_fr3_link7" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link1" link2="right_fr3_link2" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link1" link2="right_fr3_link3" reason="Always"/>
     <disable_collisions link1="right_fr3_link1" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="right_fr3_link1" link2="table_surface" reason="Never"/>
     <disable_collisions link1="right_fr3_link2" link2="right_fr3_link3" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link2" link2="right_fr3_link4" reason="Never"/>
+    <disable_collisions link1="right_fr3_link2" link2="table_surface" reason="Never"/>
     <disable_collisions link1="right_fr3_link3" link2="right_fr3_link4" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link3" link2="right_fr3_link6" reason="Never"/>
+    <disable_collisions link1="right_fr3_link3" link2="table_surface" reason="Never"/>
     <disable_collisions link1="right_fr3_link4" link2="right_fr3_link5" reason="Adjacent"/>
     <disable_collisions link1="right_fr3_link4" link2="right_fr3_link6" reason="Never"/>
     <disable_collisions link1="right_fr3_link4" link2="right_fr3_link7" reason="Never"/>

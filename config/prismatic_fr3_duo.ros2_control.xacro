@@ -1,192 +1,108 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:macro name="prismatic_fr3_duo_ros2_control" params="name initial_positions_file use_isaac:=false">
-        <xacro:property name="initial_positions" value="${load_yaml(initial_positions_file)['initial_positions']}"/>
+  <!-- Declare one joint with the command/state interfaces shared by fake and Isaac modes. -->
+  <xacro:macro name="simulated_control_joint" params="joint_name initial_position">
+    <joint name="${joint_name}">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="effort"/>
+      <state_interface name="position">
+        <param name="initial_value">${initial_position}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </xacro:macro>
 
-        <ros2_control name="${name}" type="system">
-            <hardware>
-                <xacro:if value="${use_isaac}">
-                    <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
-                    <param name="joint_commands_topic">/isaac_joint_commands</param>
-                    <param name="joint_states_topic">/isaac_joint_states</param>
-                    <!-- Override the threshold of change in commands (-1 turn off checking) -->
-                    <param name="trigger_joint_command_threshold">-1</param>
-                </xacro:if>
-                <xacro:unless value="${use_isaac}">
-                    <plugin>mock_components/GenericSystem</plugin>
-                </xacro:unless>
-            </hardware>
-            <joint name="base_slider_joint">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['base_slider_joint']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_finger_joint1">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_finger_joint1']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_finger_joint1">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_finger_joint1']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint1">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint1']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint2">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint2']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint3">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint3']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint4">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint4']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint5">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint5']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint6">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint6']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="left_fr3_joint7">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['left_fr3_joint7']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint1">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint1']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint2">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint2']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint3">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint3']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint4">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint4']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint5">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint5']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint6">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint6']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
-            <joint name="right_fr3_joint7">
-                <command_interface name="position"/>
-                <command_interface name="velocity"/>
-                <command_interface name="effort"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['right_fr3_joint7']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-                <state_interface name="effort"/>
-            </joint>
+  <!-- Keep the temporary real base in ros2_control without driving physical hardware. -->
+  <xacro:macro name="real_base_ros2_control" params="initial_positions">
+    <ros2_control name="BaseMockHardware" type="system">
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+      </hardware>
+      <xacro:simulated_control_joint
+        joint_name="base_slider_joint"
+        initial_position="${initial_positions['base_slider_joint']}"/>
+    </ros2_control>
+  </xacro:macro>
 
-        </ros2_control>
-    </xacro:macro>
+  <!-- Connect one prefixed FR3 model to one physical robot controller. -->
+  <xacro:macro name="real_fr3_ros2_control"
+    params="arm_prefix robot_ip is_async thread_priority">
+    <xacro:franka_arm_ros2_control
+      robot_type="fr3"
+      include_effort_command="true"
+      include_finger_joint="false"
+      arm_prefix="${arm_prefix}"
+      is_async="${is_async}"
+      thread_priority="${thread_priority}">
+      <hardware_plugin>
+        <plugin>franka_hardware/FrankaHardwareInterface</plugin>
+        <param name="robot_ip">${robot_ip}</param>
+        <param name="arm_prefix">${arm_prefix}</param>
+      </hardware_plugin>
+    </xacro:franka_arm_ros2_control>
+  </xacro:macro>
+
+  <xacro:macro name="prismatic_fr3_duo_ros2_control"
+    params="name initial_positions_file hardware_mode:=fake
+            left_robot_ip:='' right_robot_ip:=''
+            left_arm_prefix:=left_ right_arm_prefix:=right_
+            is_async:=false thread_priority:=80">
+    <xacro:property
+      name="initial_positions"
+      value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+
+    <!-- Real mode uses independent hardware components for the base and each arm. -->
+    <xacro:if value="${hardware_mode == 'real'}">
+      <!-- Keep simulation usable on hosts where franka_ros2 is not installed. -->
+      <xacro:include filename="$(find franka_hardware)/ros2_control/franka_arm.ros2_control.xacro"/>
+      <xacro:real_base_ros2_control initial_positions="${initial_positions}"/>
+      <xacro:real_fr3_ros2_control
+        arm_prefix="${left_arm_prefix}"
+        robot_ip="${left_robot_ip}"
+        is_async="${is_async}"
+        thread_priority="${thread_priority}"/>
+      <xacro:real_fr3_ros2_control
+        arm_prefix="${right_arm_prefix}"
+        robot_ip="${right_robot_ip}"
+        is_async="${is_async}"
+        thread_priority="${thread_priority}"/>
+    </xacro:if>
+
+    <!-- Fake and Isaac modes expose the same 17 actuated joints through one system. -->
+    <xacro:unless value="${hardware_mode == 'real'}">
+      <ros2_control name="${name}" type="system">
+        <hardware>
+          <xacro:if value="${hardware_mode == 'isaac'}">
+            <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
+            <param name="joint_commands_topic">/isaac_joint_commands</param>
+            <param name="joint_states_topic">/isaac_joint_states</param>
+            <param name="trigger_joint_command_threshold">-1</param>
+          </xacro:if>
+          <xacro:unless value="${hardware_mode == 'isaac'}">
+            <plugin>mock_components/GenericSystem</plugin>
+          </xacro:unless>
+        </hardware>
+
+        <xacro:simulated_control_joint joint_name="base_slider_joint" initial_position="${initial_positions['base_slider_joint']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_finger_joint1" initial_position="${initial_positions['left_fr3_finger_joint1']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_finger_joint1" initial_position="${initial_positions['right_fr3_finger_joint1']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint1" initial_position="${initial_positions['left_fr3_joint1']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint2" initial_position="${initial_positions['left_fr3_joint2']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint3" initial_position="${initial_positions['left_fr3_joint3']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint4" initial_position="${initial_positions['left_fr3_joint4']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint5" initial_position="${initial_positions['left_fr3_joint5']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint6" initial_position="${initial_positions['left_fr3_joint6']}"/>
+        <xacro:simulated_control_joint joint_name="left_fr3_joint7" initial_position="${initial_positions['left_fr3_joint7']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint1" initial_position="${initial_positions['right_fr3_joint1']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint2" initial_position="${initial_positions['right_fr3_joint2']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint3" initial_position="${initial_positions['right_fr3_joint3']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint4" initial_position="${initial_positions['right_fr3_joint4']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint5" initial_position="${initial_positions['right_fr3_joint5']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint6" initial_position="${initial_positions['right_fr3_joint6']}"/>
+        <xacro:simulated_control_joint joint_name="right_fr3_joint7" initial_position="${initial_positions['right_fr3_joint7']}"/>
+      </ros2_control>
+    </xacro:unless>
+  </xacro:macro>
 </robot>
