@@ -7,6 +7,7 @@ Panels:
         - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
+        - /MotionPlanning1/Planned Path1
         - /Axes1
         - /TF1
         - /TF1/Frames1
@@ -22,7 +23,7 @@ Panels:
         - /MarkerArray1
         - /MarkerArray1/Topic1
       Splitter Ratio: 0.5
-    Tree Height: 438
+    Tree Height: 138
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -314,11 +315,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          table_surface:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
         Loop Animation: false
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
         Show Robot Collision: false
-        Show Robot Visual: false
+        Show Robot Visual: true
         Show Trail: false
         State Display Time: 0.05 s
         Trail Step Size: 1
@@ -335,10 +341,10 @@ Visualization Manager:
         Colliding Link Color: 255; 0; 0
         Goal State Alpha: 1
         Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0
+        Interactive Marker Size: 0.10000000149011612
         Joint Violation Color: 255; 0; 255
         Planning Group: dual_arm
-        Query Goal State: false
+        Query Goal State: true
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -592,9 +598,14 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          table_surface:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
         Robot Alpha: 1
         Show Robot Collision: false
-        Show Robot Visual: true
+        Show Robot Visual: false
       Value: true
       Velocity_Scaling_Factor: 0.1
     - Class: rviz_default_plugins/Axes
@@ -611,8 +622,6 @@ Visualization Manager:
         All Enabled: false
         base_link:
           Value: false
-        egocentric_camera_color_optical_frame:
-          Value: true
         left_fr3_hand:
           Value: false
         left_fr3_hand_tcp:
@@ -662,8 +671,6 @@ Visualization Manager:
         left_fr3_link8:
           Value: false
         left_fr3_rightfinger:
-          Value: false
-        left_handeye_camera_color_optical_frame:
           Value: false
         rail_link:
           Value: false
@@ -717,98 +724,8 @@ Visualization Manager:
           Value: false
         right_fr3_rightfinger:
           Value: false
-        right_handeye_camera_color_optical_frame:
+        table_surface:
           Value: false
-        scan_center:
-          Value: true
-        scan_left_camera_target_001:
-          Value: true
-        scan_left_camera_target_001_tcp:
-          Value: true
-        scan_left_camera_target_002:
-          Value: true
-        scan_left_camera_target_002_tcp:
-          Value: true
-        scan_left_camera_target_003:
-          Value: true
-        scan_left_camera_target_003_tcp:
-          Value: true
-        scan_left_camera_target_004:
-          Value: true
-        scan_left_camera_target_004_tcp:
-          Value: true
-        scan_left_camera_target_005:
-          Value: true
-        scan_left_camera_target_005_tcp:
-          Value: true
-        scan_left_camera_target_006:
-          Value: true
-        scan_left_camera_target_006_tcp:
-          Value: true
-        scan_left_camera_target_007:
-          Value: true
-        scan_left_camera_target_007_tcp:
-          Value: true
-        scan_left_camera_target_008:
-          Value: true
-        scan_left_camera_target_008_tcp:
-          Value: true
-        scan_left_camera_target_009:
-          Value: true
-        scan_left_camera_target_009_tcp:
-          Value: true
-        scan_left_camera_target_010:
-          Value: true
-        scan_left_camera_target_010_tcp:
-          Value: true
-        scan_left_camera_target_011:
-          Value: true
-        scan_left_camera_target_011_tcp:
-          Value: true
-        scan_right_camera_target_001:
-          Value: true
-        scan_right_camera_target_001_tcp:
-          Value: true
-        scan_right_camera_target_002:
-          Value: true
-        scan_right_camera_target_002_tcp:
-          Value: true
-        scan_right_camera_target_003:
-          Value: true
-        scan_right_camera_target_003_tcp:
-          Value: true
-        scan_right_camera_target_004:
-          Value: true
-        scan_right_camera_target_004_tcp:
-          Value: true
-        scan_right_camera_target_005:
-          Value: true
-        scan_right_camera_target_005_tcp:
-          Value: true
-        scan_right_camera_target_006:
-          Value: true
-        scan_right_camera_target_006_tcp:
-          Value: true
-        scan_right_camera_target_007:
-          Value: true
-        scan_right_camera_target_007_tcp:
-          Value: true
-        scan_right_camera_target_008:
-          Value: true
-        scan_right_camera_target_008_tcp:
-          Value: true
-        scan_right_camera_target_009:
-          Value: true
-        scan_right_camera_target_009_tcp:
-          Value: true
-        scan_right_camera_target_010:
-          Value: true
-        scan_right_camera_target_010_tcp:
-          Value: true
-        scan_right_camera_target_011:
-          Value: true
-        scan_right_camera_target_011_tcp:
-          Value: true
         world:
           Value: false
       Marker Scale: 0.5
@@ -820,8 +737,6 @@ Visualization Manager:
         world:
           rail_link:
             base_link:
-              egocentric_camera_color_optical_frame:
-                {}
               left_fr3_link0:
                 left_fr3_link0_accelerometer_bottom:
                   {}
@@ -861,8 +776,6 @@ Visualization Manager:
                                   left_fr3_leftfinger:
                                     {}
                                   left_fr3_rightfinger:
-                                    {}
-                                  left_handeye_camera_color_optical_frame:
                                     {}
               right_fr3_link0:
                 right_fr3_link0_accelerometer_bottom:
@@ -904,96 +817,7 @@ Visualization Manager:
                                     {}
                                   right_fr3_rightfinger:
                                     {}
-                                  right_handeye_camera_color_optical_frame:
-                                    {}
-          scan_center:
-            scan_left_camera_target_001:
-              {}
-            scan_left_camera_target_001_tcp:
-              {}
-            scan_left_camera_target_002:
-              {}
-            scan_left_camera_target_002_tcp:
-              {}
-            scan_left_camera_target_003:
-              {}
-            scan_left_camera_target_003_tcp:
-              {}
-            scan_left_camera_target_004:
-              {}
-            scan_left_camera_target_004_tcp:
-              {}
-            scan_left_camera_target_005:
-              {}
-            scan_left_camera_target_005_tcp:
-              {}
-            scan_left_camera_target_006:
-              {}
-            scan_left_camera_target_006_tcp:
-              {}
-            scan_left_camera_target_007:
-              {}
-            scan_left_camera_target_007_tcp:
-              {}
-            scan_left_camera_target_008:
-              {}
-            scan_left_camera_target_008_tcp:
-              {}
-            scan_left_camera_target_009:
-              {}
-            scan_left_camera_target_009_tcp:
-              {}
-            scan_left_camera_target_010:
-              {}
-            scan_left_camera_target_010_tcp:
-              {}
-            scan_left_camera_target_011:
-              {}
-            scan_left_camera_target_011_tcp:
-              {}
-            scan_right_camera_target_001:
-              {}
-            scan_right_camera_target_001_tcp:
-              {}
-            scan_right_camera_target_002:
-              {}
-            scan_right_camera_target_002_tcp:
-              {}
-            scan_right_camera_target_003:
-              {}
-            scan_right_camera_target_003_tcp:
-              {}
-            scan_right_camera_target_004:
-              {}
-            scan_right_camera_target_004_tcp:
-              {}
-            scan_right_camera_target_005:
-              {}
-            scan_right_camera_target_005_tcp:
-              {}
-            scan_right_camera_target_006:
-              {}
-            scan_right_camera_target_006_tcp:
-              {}
-            scan_right_camera_target_007:
-              {}
-            scan_right_camera_target_007_tcp:
-              {}
-            scan_right_camera_target_008:
-              {}
-            scan_right_camera_target_008_tcp:
-              {}
-            scan_right_camera_target_009:
-              {}
-            scan_right_camera_target_009_tcp:
-              {}
-            scan_right_camera_target_010:
-              {}
-            scan_right_camera_target_010_tcp:
-              {}
-            scan_right_camera_target_011:
-              {}
-            scan_right_camera_target_011_tcp:
+            table_surface:
               {}
       Update Interval: 0
       Value: true
@@ -1279,6 +1103,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        table_surface:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Loop Animation: false
       Name: Trajectory
       Robot Alpha: 0.5
@@ -1296,7 +1125,7 @@ Visualization Manager:
       Enabled: true
       Name: Marker
       Namespaces:
-        planned_ee_waypoints: true
+        {}
       Topic:
         Depth: 1
         Durability Policy: Volatile
@@ -1309,7 +1138,7 @@ Visualization Manager:
       Enabled: true
       Name: Marker
       Namespaces:
-        planned_ee_waypoints: true
+        {}
       Topic:
         Depth: 1
         Durability Policy: Volatile
@@ -1404,25 +1233,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.8339807987213135
+      Distance: 2.5921871662139893
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.05167779326438904
-        Y: -0.026342548429965973
-        Z: 0.3693258762359619
+        X: 0.1790442019701004
+        Y: 0.23196528851985931
+        Z: 0.3467392921447754
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8947975635528564
+      Pitch: 0.004796759225428104
       Target Frame: rail_link
       Value: Orbit (rviz_default_plugins)
-      Yaw: 5.895148754119873
+      Yaw: 6.240056037902832
     Saved: ~
 Window Geometry:
   Displays:
@@ -1436,11 +1265,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000003a3000006b0fc0200000007fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00fffffffb000000100044006900730070006c006100790073010000006e000002ae0000018200fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000328000002b8000002b800fffffffb0000000800480065006c0070000000029a0000006e000000d400fffffffb0000000a0056006900650077007301000005ec000001320000013200fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00ffffff0000025a000006b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000003a3000006b0fc0200000007fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00fffffffb000000100044006900730070006c006100790073010000006e000001820000018200fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000001fc000003e4000002b800fffffffb0000000800480065006c0070000000029a0000006e000000d400fffffffb0000000a0056006900650077007301000005ec000001320000013200fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00ffffff000005c3000006b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Trajectory - Trajectory Slider:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1545
-  X: 2442
-  Y: 234
+  Width: 2418
+  X: 5977
+  Y: 450

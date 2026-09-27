@@ -1,7 +1,7 @@
 # This config file is used by ros2_control
 controller_manager:
   ros__parameters:
-    update_rate: 500  # Hz
+    update_rate: 1000  # Hz
 
     left_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
@@ -28,16 +28,14 @@ controller_manager:
     #   type: position_controllers/GripperActionController
       type: joint_trajectory_controller/JointTrajectoryController
 
-    # whole_body_trajectory_controller:
-    #   type: joint_trajectory_controller/JointTrajectoryController
+    whole_body_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
     whole_body_controller:
       type: crisp_controllers/WholeBodyController
 
-
     base_controller:
       type: joint_trajectory_controller/JointTrajectoryController
-
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -60,6 +58,7 @@ right_franka_robot_state_broadcaster:
     arm_prefix: right
     convenience_publish_rate: 100
 
+#### Single Arm Controllers ####
 left_arm_controller:
   ros__parameters:
     joints:
@@ -84,100 +83,6 @@ left_arm_controller:
       left_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
       left_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
 
-##### PID Control with effort commands #####
-dual_arm_controller:
-  ros__parameters:
-    joints:
-      - left_fr3_joint1
-      - left_fr3_joint2
-      - left_fr3_joint3
-      - left_fr3_joint4
-      - left_fr3_joint5
-      - left_fr3_joint6
-      - left_fr3_joint7
-      - right_fr3_joint1
-      - right_fr3_joint2
-      - right_fr3_joint3
-      - right_fr3_joint4
-      - right_fr3_joint5
-      - right_fr3_joint6
-      - right_fr3_joint7
-    command_interfaces:
-      # - position
-      # - velocity
-      - effort
-    state_interfaces:
-      - position
-      - velocity
-      # - effort
-    gains:
-      left_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      left_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      left_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
-      right_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      right_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      right_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
-
-##### Direct position commands #####
-# dual_arm_controller:
-#   ros__parameters:
-#     joints:
-#       - left_fr3_joint1
-#       - left_fr3_joint2
-#       - left_fr3_joint3
-#       - left_fr3_joint4
-#       - left_fr3_joint5
-#       - left_fr3_joint6
-#       - left_fr3_joint7
-#       - right_fr3_joint1
-#       - right_fr3_joint2
-#       - right_fr3_joint3
-#       - right_fr3_joint4
-#       - right_fr3_joint5
-#       - right_fr3_joint6
-#       - right_fr3_joint7
-#     command_interfaces:
-#       - position
-#       - velocity
-#     state_interfaces:
-#       - position
-#       - velocity
-#       # - effort
-
-whole_body_trajectory_controller:
-  ros__parameters:
-    joints:
-      - base_slider_joint
-      - left_fr3_joint1
-      - left_fr3_joint2
-      - left_fr3_joint3
-      - left_fr3_joint4
-      - left_fr3_joint5
-      - left_fr3_joint6
-      - left_fr3_joint7
-      - right_fr3_joint1
-      - right_fr3_joint2
-      - right_fr3_joint3
-      - right_fr3_joint4
-      - right_fr3_joint5
-      - right_fr3_joint6
-      - right_fr3_joint7
-    command_interfaces:
-      - position
-      # - velocity
-      # - effort
-    state_interfaces:
-      - position
-      - velocity
-      # - effort
 right_arm_controller:
   ros__parameters:
     joints:
@@ -227,18 +132,16 @@ right_cartesian_controller:
       - right_fr3_joint7
     end_effector_frame: right_fr3_hand_tcp
     base_frame: rail_link
+
 base_controller:
   ros__parameters:
     joints:
       - base_slider_joint
     command_interfaces:
       - position
-      # - velocity
-      # - effort
     state_interfaces:
       - position
       - velocity
-      # - effort
 
 left_hand_controller:
   ros__parameters:
@@ -260,18 +163,10 @@ right_hand_controller:
       - position
       - velocity
 
-# right_hand_controller:
-#   ros__parameters:
-#     joint: right_fr3_finger_joint1
-#     goal_tolerance: 0.01
-    # allow_stalling: true
-    # stall_velocity_threshold: 0.001
-    # stall_timeout: 0.75
-
-dual_arm_controller_wbc:
+##### Dual Arm Controllers #####
+dual_arm_controller:
   ros__parameters:
     joints:
-      # - base_slider_joint
       - left_fr3_joint1
       - left_fr3_joint2
       - left_fr3_joint3
@@ -286,25 +181,64 @@ dual_arm_controller_wbc:
       - right_fr3_joint5
       - right_fr3_joint6
       - right_fr3_joint7
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      # - effort
+    gains:
+      left_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      left_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      left_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      left_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      left_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
+      left_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
+      left_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
+      right_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      right_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      right_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      right_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
+      right_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
+      right_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
+      right_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
 
+dual_arm_controller_wbc:
+  ros__parameters:
+    joints:
+      - left_fr3_joint1
+      - left_fr3_joint2
+      - left_fr3_joint3
+      - left_fr3_joint4
+      - left_fr3_joint5
+      - left_fr3_joint6
+      - left_fr3_joint7
+      - right_fr3_joint1
+      - right_fr3_joint2
+      - right_fr3_joint3
+      - right_fr3_joint4
+      - right_fr3_joint5
+      - right_fr3_joint6
+      - right_fr3_joint7
     end_effector_frames:
       - left_fr3_hand_tcp
       - right_fr3_hand_tcp
     topics:
       target_pose: [~/target_pose/left, ~/target_pose/right]
+      target_velocity: [~/target_velocity/left, ~/target_velocity/right]
       target_joint: ~/target_joint
     # Pinocchio's world-aligned coordinates are rooted at this URDF root link.
     base_frame: rail_link
 
-    # Per-frame order is [x, y, z, rx, ry, rz].
+    # Primary task: Per-frame order is [x, y, z, rx, ry, rz].
     task:
-      kp: [2000.0, 2000.0, 2000.0, 2000.0, 2000.0, 2000.0,
-           2000.0, 2000.0, 2000.0, 2000.0, 2000.0, 2000.0]
-      kd: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0,
-           10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
+      kp: [500.0, 500.0, 500.0, 100.0, 100.0, 100.0,
+           500.0, 500.0, 500.0, 100.0, 100.0, 100.0]
+      kd: [30.0, 30.0, 30.0, 20.0, 20.0, 20.0,
+           30.0, 30.0, 30.0, 20.0, 20.0, 20.0]
       error_clip: [0.30, 0.30, 0.30, 0.50, 0.50, 0.50]
 
-    # Gains follow the joint order above and mirror FSM_TaskSpaceCtrl.cpp.
+    # Secondary task: Gains follow the joint configuration.
     posture:
       # kp: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 100.0,
       #      10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 100.0]
@@ -312,40 +246,84 @@ dual_arm_controller_wbc:
       #      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
       kp: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0,
            10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
-      kd: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-           1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      kd: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0,
+           3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0]
+
+    # Optional direct joint PD torque added after the WBC feed-forward solution.
+    feedback:
+      enabled: true
+      kp: [50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0,
+           50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0]
+      kd: [10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0,
+           10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0]
 
     dynamics:
-      armature: [0.] # [0.01] for real robot
-      joint_damping: [0.] # [0.003] for real robot
+      armature: [0.01] # [0.01] for real robot
+      joint_damping: [0.003] # [0.003] for real robot
       use_coriolis: true
       use_gravity: false
 
     weights:
       task: 10.0
-      qddot: 0.0
-      regularization: 1.0
-      regularization_qddot: 0.001
+      qddot: 5.0
+      regularization: 0.1
+      regularization_qddot: 0.1
 
     nullspace:
       regularization: 0.001
-      projector_type: dynamic
+      projector_type: dynamic  # dynamic, kinematic, or none
 
     # Empty torque_limits to use torque limit from urdf model
     torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
                     87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
-    # torque_limits: [200.0, 200.0, 200.0, 200.0, 100.0, 100.0, 100.0,
-    #                 200.0, 200.0, 200.0, 200.0, 100.0, 100.0, 100.0]
 
     max_delta_tau: 0.0
+    
     filter:
       target_pose: 0.0
-      output_torque: 0.0
+      output_torque: 0.1
+    
     qp:
       max_working_set_recalculations: 100
+    
+    decompose_commands:
+      enabled: false
+      publish_frequency: 100.0
+      motion_topic: ~/decompose_commands/motion
+      nonlinear_topic: ~/decompose_commands/nonlinear
+      feedforward_topic: ~/decompose_commands/feedforward
+      feedback_topic: ~/decompose_commands/feedback
+      command_topic: ~/decompose_commands/command
+    
     stop_commands: false
+    
     log:
       enabled: false
+
+##### Whole Body Controllers #####
+whole_body_trajectory_controller:
+  ros__parameters:
+    joints:
+      - base_slider_joint
+      - left_fr3_joint1
+      - left_fr3_joint2
+      - left_fr3_joint3
+      - left_fr3_joint4
+      - left_fr3_joint5
+      - left_fr3_joint6
+      - left_fr3_joint7
+      - right_fr3_joint1
+      - right_fr3_joint2
+      - right_fr3_joint3
+      - right_fr3_joint4
+      - right_fr3_joint5
+      - right_fr3_joint6
+      - right_fr3_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
 
 whole_body_controller:
   ros__parameters:
