@@ -1,4 +1,6 @@
 import os
+import resource
+import shutil
 
 import yaml
 from ament_index_python.packages import get_package_share_directory
@@ -206,6 +208,50 @@ def _validate_real_ips(config):
             )
 
 
+def _realtime_process_prefix(profile):
+    """Validate RT permissions and optionally pin the controller-manager process."""
+    requested_priority = int(profile["controller_manager_thread_priority"])
+    rt_priority_limit = resource.getrlimit(resource.RLIMIT_RTPRIO)[0]
+    if rt_priority_limit != resource.RLIM_INFINITY and rt_priority_limit < requested_priority:
+        raise RuntimeError(
+            "The real-hardware controller manager requests FIFO priority "
+            f"{requested_priority}, but the process RLIMIT_RTPRIO is {rt_priority_limit}. "
+            "Log in again after configuring the realtime group and verify `ulimit -r`."
+        )
+
+    realtime_flag = "/sys/kernel/realtime"
+    if os.path.exists(realtime_flag):
+        with open(realtime_flag, encoding="utf-8") as flag_file:
+            realtime_kernel = flag_file.read().strip() == "1"
+    else:
+        kernel_identity = f"{os.uname().release} {os.uname().version}".upper()
+        realtime_kernel = "PREEMPT_RT" in kernel_identity or "PREEMPT RT" in kernel_identity
+    if not realtime_kernel:
+        raise RuntimeError(
+            "Real hardware requires a PREEMPT_RT kernel; /sys/kernel/realtime is not 1 "
+            "and the running kernel does not report PREEMPT_RT."
+        )
+
+    cpu_affinity = profile.get("controller_manager_cpu_affinity", [])
+    if not cpu_affinity:
+        return None
+    if not isinstance(cpu_affinity, list) or any(
+        not isinstance(cpu, int) or isinstance(cpu, bool) for cpu in cpu_affinity
+    ):
+        raise RuntimeError(
+            "real_hardware.controller_manager_cpu_affinity must be a list of CPU numbers"
+        )
+    cpu_count = os.cpu_count()
+    if cpu_count is not None and any(cpu < 0 or cpu >= cpu_count for cpu in cpu_affinity):
+        raise RuntimeError(
+            "real_hardware.controller_manager_cpu_affinity contains a CPU outside the "
+            f"available range 0..{cpu_count - 1}"
+        )
+    if shutil.which("taskset") is None:
+        raise RuntimeError("CPU affinity was requested, but the `taskset` command is unavailable")
+    return [f"taskset --cpu-list {','.join(str(cpu) for cpu in cpu_affinity)}"]
+
+
 def _gripper_node(side, robot_ip, publish_rate):
     """Start one physical Franka Hand server with prefixed joint-state names."""
     gripper_config = os.path.join(
@@ -238,6 +284,12 @@ def _real_hardware_nodes(config, package_share):
     profile = config["real_hardware"]
     if profile["hardware_mode"] != "real":
         raise RuntimeError("real_hardware.hardware_mode must be 'real'")
+    if profile.get("hardware_is_async", False):
+        raise RuntimeError(
+            "ROS 2 Humble does not support the <properties><async> hardware schema. "
+            "Set real_hardware.hardware_is_async to false."
+        )
+    controller_manager_prefix = _realtime_process_prefix(profile)
     moveit_config = _robot_config(profile["hardware_mode"], config)
     publish_rate = int(profile["joint_state_publish_rate"])
     ros2_joint_states = "ros2_control/joint_states"
@@ -262,6 +314,7 @@ def _real_hardware_nodes(config, package_share):
             package="controller_manager",
             executable="ros2_control_node",
             output="screen",
+            prefix=controller_manager_prefix,
             parameters=[
                 moveit_config.robot_description,
                 os.path.join(package_share, "config", "ros2_controllers.yaml"),

@@ -33,20 +33,23 @@ real_hardware:
   use_sim_time: false
   controller_manager_update_rate: 1000
   controller_manager_thread_priority: 98
-  hardware_is_async: true
+  # Humble does not support ros2_control's <properties><async> hardware schema.
+  hardware_is_async: false
   hardware_thread_priority: 80
+  # Add isolated CPU IDs here (for example, [2, 3]) after configuring the RT host.
+  controller_manager_cpu_affinity: []
   joint_state_publish_rate: 100
   start_grippers: true
   active_controllers:
     - joint_state_broadcaster
     - left_franka_robot_state_broadcaster
     - right_franka_robot_state_broadcaster
-    - dual_arm_controller
+    - dual_arm_controller_wbc
   inactive_controllers:
     - base_controller
     - left_arm_controller
     - right_arm_controller
-    - dual_arm_controller_wbc
+    - dual_arm_controller
     - left_cartesian_controller
     - right_cartesian_controller
     - whole_body_controller
