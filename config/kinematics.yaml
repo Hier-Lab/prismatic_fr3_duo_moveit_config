@@ -51,7 +51,7 @@ whole_body:
 
 dual_arm:
   kinematics_solver: wbdopt_ik_kinematics_plugin/WbdoptIkKinematicsPlugin
-  kinematics_solver_timeout: 0.002
+  kinematics_solver_timeout: 0.05
   kinematics_solver_search_resolution: 0.05
   solver_type: qp  # Use nlopt for direct nonlinear SLSQP, qp for QP solver
   tip_frames: [left_fr3_hand_tcp, right_fr3_hand_tcp]

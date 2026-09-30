@@ -1,6 +1,5 @@
 import os
 import resource
-import shutil
 
 import yaml
 from ament_index_python.packages import get_package_share_directory
@@ -208,9 +207,18 @@ def _validate_real_ips(config):
             )
 
 
-def _realtime_process_prefix(profile):
-    """Validate RT permissions and optionally pin the controller-manager process."""
+def _realtime_cpu_affinity(profile):
+    """Validate RT permissions and return the CPUs to pin the update thread to."""
     requested_priority = int(profile["controller_manager_thread_priority"])
+    if profile.get("hardware_is_async", False):
+        # The per-arm I/O threads talk to the robots, so they must outrank the update thread.
+        hardware_priority = int(profile["hardware_thread_priority"])
+        if hardware_priority <= requested_priority:
+            raise RuntimeError(
+                "real_hardware.hardware_thread_priority must be higher than "
+                "controller_manager_thread_priority when hardware_is_async is true"
+            )
+        requested_priority = hardware_priority
     rt_priority_limit = resource.getrlimit(resource.RLIMIT_RTPRIO)[0]
     if rt_priority_limit != resource.RLIM_INFINITY and rt_priority_limit < requested_priority:
         raise RuntimeError(
@@ -234,7 +242,7 @@ def _realtime_process_prefix(profile):
 
     cpu_affinity = profile.get("controller_manager_cpu_affinity", [])
     if not cpu_affinity:
-        return None
+        return []
     if not isinstance(cpu_affinity, list) or any(
         not isinstance(cpu, int) or isinstance(cpu, bool) for cpu in cpu_affinity
     ):
@@ -247,9 +255,15 @@ def _realtime_process_prefix(profile):
             "real_hardware.controller_manager_cpu_affinity contains a CPU outside the "
             f"available range 0..{cpu_count - 1}"
         )
-    if shutil.which("taskset") is None:
-        raise RuntimeError("CPU affinity was requested, but the `taskset` command is unavailable")
-    return [f"taskset --cpu-list {','.join(str(cpu) for cpu in cpu_affinity)}"]
+    # Pinning is only meaningful once the listed CPUs are isolated from the scheduler.
+    with open("/proc/cmdline", encoding="utf-8") as cmdline_file:
+        if "isolcpus=" not in cmdline_file.read():
+            print(
+                "WARNING: real_hardware.controller_manager_cpu_affinity is set, but the "
+                "kernel was booted without isolcpus. Pinning the update thread to a subset "
+                "of shared CPUs usually increases jitter; consider leaving it empty."
+            )
+    return [int(cpu) for cpu in cpu_affinity]
 
 
 def _gripper_node(side, robot_ip, publish_rate):
@@ -284,23 +298,45 @@ def _real_hardware_nodes(config, package_share):
     profile = config["real_hardware"]
     if profile["hardware_mode"] != "real":
         raise RuntimeError("real_hardware.hardware_mode must be 'real'")
-    if profile.get("hardware_is_async", False):
-        raise RuntimeError(
-            "ROS 2 Humble does not support the <properties><async> hardware schema. "
-            "Set real_hardware.hardware_is_async to false."
-        )
-    controller_manager_prefix = _realtime_process_prefix(profile)
+    cpu_affinity = _realtime_cpu_affinity(profile)
     moveit_config = _robot_config(profile["hardware_mode"], config)
     publish_rate = int(profile["joint_state_publish_rate"])
     ros2_joint_states = "ros2_control/joint_states"
     sources = [ros2_joint_states]
-    if profile.get("start_grippers", True):
+    start_grippers = bool(profile.get("start_grippers", True))
+    if start_grippers:
         sources.extend(
             [
                 "left_franka_gripper/joint_states",
                 "right_franka_gripper/joint_states",
             ]
         )
+
+    # ros2_control_node applies these to the update thread itself, unlike a taskset
+    # prefix, which would also drag the DDS executor and service threads along.
+    realtime_parameters = {
+        "use_sim_time": False,
+        "update_rate": int(profile["controller_manager_update_rate"]),
+        "thread_priority": int(profile["controller_manager_thread_priority"]),
+        # mlockall() keeps the 1 kHz loop from taking page faults.
+        "lock_memory": bool(profile.get("controller_manager_lock_memory", True)),
+    }
+    # An empty list has no inferable parameter type, so only send it when set.
+    if cpu_affinity:
+        realtime_parameters["cpu_affinity"] = cpu_affinity
+
+    # Without the gripper servers nothing publishes the four prismatic finger
+    # joints, so let the URDF supply defaults for them. Source topics still win
+    # for every joint they cover.
+    joint_state_parameters = [] if start_grippers else [moveit_config.robot_description]
+    joint_state_parameters.append(
+        {
+            "source_list": sources,
+            "rate": publish_rate,
+            "use_robot_description": not start_grippers,
+            "use_sim_time": False,
+        }
+    )
 
     # Keep the real-time controller manager free of planning and visualization work.
     nodes = [
@@ -314,15 +350,10 @@ def _real_hardware_nodes(config, package_share):
             package="controller_manager",
             executable="ros2_control_node",
             output="screen",
-            prefix=controller_manager_prefix,
             parameters=[
                 moveit_config.robot_description,
                 os.path.join(package_share, "config", "ros2_controllers.yaml"),
-                {
-                    "use_sim_time": False,
-                    "update_rate": int(profile["controller_manager_update_rate"]),
-                    "thread_priority": int(profile["controller_manager_thread_priority"]),
-                },
+                realtime_parameters,
             ],
             remappings=[("joint_states", ros2_joint_states)],
             on_exit=Shutdown(),
@@ -332,17 +363,10 @@ def _real_hardware_nodes(config, package_share):
             executable="joint_state_publisher",
             name="joint_state_publisher",
             output="screen",
-            parameters=[
-                {
-                    "source_list": sources,
-                    "rate": publish_rate,
-                    "use_robot_description": False,
-                    "use_sim_time": False,
-                }
-            ],
+            parameters=joint_state_parameters,
         ),
     ]
-    if profile.get("start_grippers", True):
+    if start_grippers:
         nodes.extend(
             [
                 _gripper_node("left", config["robots"]["left"]["ip"], publish_rate),

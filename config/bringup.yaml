@@ -1,10 +1,10 @@
 # Edit this file instead of passing robot-specific values on the command line.
 robots:
   left:
-    ip: "CHANGE_ME_LEFT_FR3_IP"
+    ip: "192.168.1.11"
     prefix: "left_"
   right:
-    ip: "CHANGE_ME_RIGHT_FR3_IP"
+    ip: "192.168.1.15"
     prefix: "right_"
 
 simulation:
@@ -31,14 +31,17 @@ simulation:
 real_hardware:
   hardware_mode: "real"
   use_sim_time: false
-  controller_manager_update_rate: 1000
-  controller_manager_thread_priority: 98
-  # Humble does not support ros2_control's <properties><async> hardware schema.
-  hardware_is_async: false
-  hardware_thread_priority: 80
+  controller_manager_update_rate: 500
+  controller_manager_thread_priority: 90
+  # Run each arm's readOnce/writeOnce in its own driver thread (franka_ros2 branch
+  # feat/async-franka-hardware). Humble's ros2_control has no async components, and without
+  # this the update thread reads both arms serially and trips communication_constraints_violation.
+  hardware_is_async: true
+  # FIFO priority of the per-arm I/O threads; must be above controller_manager_thread_priority.
+  hardware_thread_priority: 95
   # Add isolated CPU IDs here (for example, [2, 3]) after configuring the RT host.
   controller_manager_cpu_affinity: []
-  joint_state_publish_rate: 100
+  joint_state_publish_rate: 200
   start_grippers: true
   active_controllers:
     - joint_state_broadcaster
@@ -52,10 +55,10 @@ real_hardware:
     - dual_arm_controller
     - left_cartesian_controller
     - right_cartesian_controller
-    - whole_body_controller
+    # - whole_body_controller
 
 moveit:
-  use_sim_time: true
+  use_sim_time: false
   use_rviz: true
   debug: false
   allow_trajectory_execution: true

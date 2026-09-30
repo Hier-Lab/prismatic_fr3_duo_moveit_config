@@ -34,12 +34,16 @@
       include_effort_command="true"
       include_finger_joint="false"
       arm_prefix="${arm_prefix}"
-      is_async="${is_async}"
+      is_async="false"
       thread_priority="${thread_priority}">
+      <!-- Humble's ros2_control cannot run components asynchronously, so the driver runs its
+           own per-arm I/O thread instead (feat/async-franka-hardware in franka_ros2). -->
       <hardware_plugin>
         <plugin>franka_hardware/FrankaHardwareInterface</plugin>
         <param name="robot_ip">${robot_ip}</param>
         <param name="arm_prefix">${arm_prefix}</param>
+        <param name="async">${is_async}</param>
+        <param name="async_thread_priority">${thread_priority}</param>
       </hardware_plugin>
     </xacro:franka_arm_ros2_control>
   </xacro:macro>
