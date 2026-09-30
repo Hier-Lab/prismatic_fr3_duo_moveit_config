@@ -232,10 +232,10 @@ dual_arm_controller_wbc:
 
     # Primary task: Per-frame order is [x, y, z, rx, ry, rz].
     task:
-      kp: [500.0, 500.0, 500.0, 100.0, 100.0, 100.0,
-           500.0, 500.0, 500.0, 100.0, 100.0, 100.0]
-      kd: [30.0, 30.0, 30.0, 20.0, 20.0, 20.0,
-           30.0, 30.0, 30.0, 20.0, 20.0, 20.0]
+      kp: [700.0, 700.0, 700.0, 700.0, 700.0, 700.0,
+           700.0, 700.0, 700.0, 700.0, 700.0, 700.0]
+      kd: [20.0, 20.0, 20.0, 20.0, 20.0, 20.0,
+           20.0, 20.0, 20.0, 20.0, 20.0, 20.0]
       error_clip: [0.30, 0.30, 0.30, 0.50, 0.50, 0.50]
 
     # Secondary task: Gains follow the joint configuration.
@@ -244,14 +244,15 @@ dual_arm_controller_wbc:
       #      10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 100.0]
       # kd: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
       #      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-      kp: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0,
-           10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
-      kd: [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0,
-           3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0]
+      kp: [50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0,
+           50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0]
+      kd: [10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0,
+           10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0]
 
     # Optional direct joint PD torque added after the WBC feed-forward solution.
     feedback:
       enabled: true
+      use_acc_integration: true
       kp: [50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0,
            50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0]
       kd: [10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0,
@@ -267,15 +268,17 @@ dual_arm_controller_wbc:
       task: 10.0
       qddot: 5.0
       regularization: 0.1
-      regularization_qddot: 0.1
+      regularization_qddot: 0.01
 
     nullspace:
       regularization: 0.001
       projector_type: dynamic  # dynamic, kinematic, or none
 
     # Empty torque_limits to use torque limit from urdf model
-    torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
-                    87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+    # torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
+    #                 87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+      torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
+                      87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
 
     max_delta_tau: 0.0
     
@@ -287,7 +290,7 @@ dual_arm_controller_wbc:
       max_working_set_recalculations: 100
     
     decompose_commands:
-      enabled: false
+      enabled: true
       publish_frequency: 100.0
       motion_topic: ~/decompose_commands/motion
       nonlinear_topic: ~/decompose_commands/nonlinear

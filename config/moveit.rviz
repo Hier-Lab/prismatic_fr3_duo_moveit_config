@@ -22,8 +22,9 @@ Panels:
         - /Path2/Topic1
         - /MarkerArray1
         - /MarkerArray1/Topic1
+        - /Pose3
       Splitter Ratio: 0.5
-    Tree Height: 138
+    Tree Height: 421
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -605,7 +606,7 @@ Visualization Manager:
             Value: true
         Robot Alpha: 1
         Show Robot Collision: false
-        Show Robot Visual: false
+        Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 0.1
     - Class: rviz_default_plugins/Axes
@@ -622,6 +623,10 @@ Visualization Manager:
         All Enabled: false
         base_link:
           Value: false
+        egocentric_camera_color_optical_frame:
+          Value: true
+        exocentric_camera_color_optical_frame:
+          Value: true
         left_fr3_hand:
           Value: false
         left_fr3_hand_tcp:
@@ -672,6 +677,8 @@ Visualization Manager:
           Value: false
         left_fr3_rightfinger:
           Value: false
+        left_handeye_camera_color_optical_frame:
+          Value: true
         rail_link:
           Value: false
         right_fr3_hand:
@@ -724,6 +731,8 @@ Visualization Manager:
           Value: false
         right_fr3_rightfinger:
           Value: false
+        right_handeye_camera_color_optical_frame:
+          Value: true
         table_surface:
           Value: false
         world:
@@ -737,6 +746,8 @@ Visualization Manager:
         world:
           rail_link:
             base_link:
+              egocentric_camera_color_optical_frame:
+                {}
               left_fr3_link0:
                 left_fr3_link0_accelerometer_bottom:
                   {}
@@ -776,6 +787,8 @@ Visualization Manager:
                                   left_fr3_leftfinger:
                                     {}
                                   left_fr3_rightfinger:
+                                    {}
+                                  left_handeye_camera_color_optical_frame:
                                     {}
               right_fr3_link0:
                 right_fr3_link0_accelerometer_bottom:
@@ -817,6 +830,10 @@ Visualization Manager:
                                     {}
                                   right_fr3_rightfinger:
                                     {}
+                                  right_handeye_camera_color_optical_frame:
+                                    {}
+            exocentric_camera_color_optical_frame:
+              {}
             table_surface:
               {}
       Update Interval: 0
@@ -1215,6 +1232,26 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /scan/trajectory_before_2opt
       Value: true
+    - Alpha: 1
+      Axes Length: 0.10000000149011612
+      Axes Radius: 0.019999999552965164
+      Class: rviz_default_plugins/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dual_arm_controller_wbc/delayed_target_pose/left
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -1233,25 +1270,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.5921871662139893
+      Distance: 1.1196075677871704
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.1790442019701004
-        Y: 0.23196528851985931
-        Z: 0.3467392921447754
+        X: 0.4439427852630615
+        Y: 0.3225395083427429
+        Z: 0.5147004723548889
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.004796759225428104
+      Pitch: 0.37979656457901
       Target Frame: rail_link
       Value: Orbit (rviz_default_plugins)
-      Yaw: 6.240056037902832
+      Yaw: 4.605058670043945
     Saved: ~
 Window Geometry:
   Displays:
@@ -1265,11 +1302,11 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000003a3000006b0fc0200000007fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00fffffffb000000100044006900730070006c006100790073010000006e000001820000018200fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000001fc000003e4000002b800fffffffb0000000800480065006c0070000000029a0000006e000000d400fffffffb0000000a0056006900650077007301000005ec000001320000013200fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00ffffff000005c3000006b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000004d3000006b0fc0200000007fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00fffffffb000000100044006900730070006c006100790073010000006e0000029d0000018200fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000317000002c9000002b800fffffffb0000000800480065006c0070000000029a0000006e000000d400fffffffb0000000a0056006900650077007301000005ec000001320000013200fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000007a00ffffff00000655000006b000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Trajectory - Trajectory Slider:
     collapsed: false
   Views:
     collapsed: false
-  Width: 2418
-  X: 5977
+  Width: 2868
+  X: 5527
   Y: 450
