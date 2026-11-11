@@ -1,7 +1,7 @@
 # This config file is used by ros2_control
 controller_manager:
   ros__parameters:
-    update_rate: 1000  # Hz
+    update_rate: 500  # Hz
 
     left_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
@@ -16,10 +16,10 @@ controller_manager:
       type: crisp_controllers/WholeBodyController
 
     left_cartesian_controller:
-      type: crisp_controllers/CartesianController
+      type: crisp_controllers/WholeBodyController
 
     right_cartesian_controller:
-      type: crisp_controllers/CartesianController
+      type: crisp_controllers/WholeBodyController
 
     left_hand_controller:
       type: joint_trajectory_controller/JointTrajectoryController
@@ -75,13 +75,13 @@ left_arm_controller:
       - position
       - velocity
     gains:
-      left_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      left_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      left_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      left_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
+      left_fr3_joint1: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      left_fr3_joint2: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      left_fr3_joint3: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      left_fr3_joint4: { p: 100., d: 10., i: 0., i_clamp: 0. }
+      left_fr3_joint5: { p: 10., d: 5., i: 0., i_clamp: 0. }
+      left_fr3_joint6: { p: 5., d: 2., i: 0., i_clamp: 0. }
+      left_fr3_joint7: { p: 5., d: 2., i: 0., i_clamp: 0. }
 
 right_arm_controller:
   ros__parameters:
@@ -99,13 +99,13 @@ right_arm_controller:
       - position
       - velocity
     gains:
-      right_fr3_joint1: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint2: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint3: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint4: { p: 600., d: 30., i: 0., i_clamp: 1. }
-      right_fr3_joint5: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      right_fr3_joint6: { p: 250., d: 10., i: 0., i_clamp: 1. }
-      right_fr3_joint7: { p: 50., d: 5., i: 0., i_clamp: 1. }
+      right_fr3_joint1: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      right_fr3_joint2: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      right_fr3_joint3: { p: 100., d: 20., i: 0., i_clamp: 0. }
+      right_fr3_joint4: { p: 100., d: 10., i: 0., i_clamp: 0. }
+      right_fr3_joint5: { p: 10., d: 5., i: 0., i_clamp: 0. }
+      right_fr3_joint6: { p: 5., d: 2., i: 0., i_clamp: 0. }
+      right_fr3_joint7: { p: 5., d: 2., i: 0., i_clamp: 0. }
 
 left_cartesian_controller:
   ros__parameters:
@@ -117,8 +117,23 @@ left_cartesian_controller:
       - left_fr3_joint5
       - left_fr3_joint6
       - left_fr3_joint7
-    end_effector_frame: left_fr3_hand_tcp
+    end_effector_frames: [left_fr3_hand_tcp]
+    topics:
+      target_pose: [~/target_pose]
+      target_velocity: [~/target_velocity]
+      target_joint: ~/target_joint
     base_frame: rail_link
+    dynamics: {use_gravity: false}
+    task:
+      kp: [300.0, 300.0, 300.0, 300.0, 300.0, 300.0]
+      kd: [35.0, 35.0, 35.0, 35.0, 35.0, 35.0]
+      error_clip: [0.1, 0.1, 0.1, 0.2, 0.2, 0.2]
+    torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+    weights:
+      task: 10.0
+      qddot: 5.0
+      regularization: 0.1
+      regularization_qddot: 0.01
 
 right_cartesian_controller:
   ros__parameters:
@@ -130,8 +145,23 @@ right_cartesian_controller:
       - right_fr3_joint5
       - right_fr3_joint6
       - right_fr3_joint7
-    end_effector_frame: right_fr3_hand_tcp
+    end_effector_frames: [right_fr3_hand_tcp]
+    topics:
+      target_pose: [~/target_pose]
+      target_velocity: [~/target_velocity]
+      target_joint: ~/target_joint
     base_frame: rail_link
+    dynamics: {use_gravity: false}
+    task:
+      kp: [300.0, 300.0, 300.0, 300.0, 300.0, 300.0]
+      kd: [35.0, 35.0, 35.0, 35.0, 35.0, 35.0]
+      error_clip: [0.1, 0.1, 0.1, 0.2, 0.2, 0.2]
+    torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+    weights:
+      task: 10.0
+      qddot: 5.0
+      regularization: 0.1
+      regularization_qddot: 0.01
 
 base_controller:
   ros__parameters:
@@ -240,6 +270,13 @@ dual_arm_controller_wbc:
 
     # Secondary task: Gains follow the joint configuration.
     posture:
+      nominal:
+        [
+          # left arm
+          0.0, -0.7854, 0.0, -2.3562, 0.0, 1.5708, 0.7854,
+          # right arm
+          0.0, -0.7854, 0.0, -2.3562, 0.0, 1.5708, 0.7854
+        ]
       # kp: [10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 100.0,
       #      10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 100.0]
       # kd: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
@@ -248,15 +285,21 @@ dual_arm_controller_wbc:
            50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0]
       kd: [10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0,
            10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0]
+      error_clip: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
+                   0.5, 0.5, 0.5, 0.5, 2.0, 2.0, 2.0]
 
     # Optional direct joint PD torque added after the WBC feed-forward solution.
     feedback:
       enabled: true
-      use_acc_integration: true
+      use_acc_integration: false
+      use_inertial: true
       kp: [50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0,
            50.0, 50.0, 50.0, 50.0, 30.0, 30.0, 20.0]
       kd: [10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0,
            10.0, 10.0, 10.0, 10.0, 8.0, 8.0, 6.0]
+
+    feedforward:
+      enabled: false
 
     dynamics:
       armature: [0.01] # [0.01] for real robot
@@ -278,7 +321,7 @@ dual_arm_controller_wbc:
     # torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
     #                 87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
       torque_limits: [87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0,
-                      87.0, 87.0, 87.0, 87.0, 12.0, 12.0, 12.0]
+                      50.0, 50.0, 50.0, 50.0, 12.0, 12.0, 12.0]
 
     max_delta_tau: 0.0
     

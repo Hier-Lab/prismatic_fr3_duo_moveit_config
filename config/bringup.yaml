@@ -16,14 +16,14 @@ simulation:
   debug: false
   active_controllers:
     - joint_state_broadcaster
-    - dual_arm_controller_wbc
     - left_hand_controller
     - right_hand_controller
-  inactive_controllers:
-    - dual_arm_controller
-    - base_controller
     - left_arm_controller
     - right_arm_controller
+  inactive_controllers:
+    - dual_arm_controller_wbc
+    - dual_arm_controller
+    - base_controller
     - left_cartesian_controller
     - right_cartesian_controller
     - whole_body_controller

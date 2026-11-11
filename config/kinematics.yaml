@@ -27,6 +27,7 @@ whole_body:
   kinematics_solver_timeout: 0.05
   kinematics_solver_search_resolution: 0.05
   tip_frames: [left_fr3_hand_tcp, right_fr3_hand_tcp]
+  collision_primitives_file: package://wbdopt_ik_kinematics_plugin/config/dual_fr3_collision_primitives.yaml
   solver_type: qp
   epsilon: 0.001
   regularization: 0.01
@@ -38,6 +39,7 @@ whole_body:
   collision_activation_distance: 0.05
   max_joint_step: 0.50
   max_iterations: 100
+  random_restarts: false
   nominal_joint_names: [base_slider_joint,
     left_fr3_joint1, left_fr3_joint2, left_fr3_joint3, left_fr3_joint4,
     left_fr3_joint5, left_fr3_joint6, left_fr3_joint7,
@@ -48,13 +50,16 @@ whole_body:
     0.0, 1.5707963267948966, 0.7853981633974483,
     0.0, -0.7853981633974483, 0.0, -2.356194490192345,
     0.0, 1.5707963267948966, 0.7853981633974483]
+  nominal_tracking_weight: 0.01
 
 dual_arm:
   kinematics_solver: wbdopt_ik_kinematics_plugin/WbdoptIkKinematicsPlugin
-  kinematics_solver_timeout: 0.002
-  kinematics_solver_search_resolution: 0.05
+  # Collision checking 28 primitives requires more than the former 2 ms budget.
+  kinematics_solver_timeout: 0.01
+  kinematics_solver_search_resolution: 0.01
   solver_type: qp  # Use nlopt for direct nonlinear SLSQP, qp for QP solver
   tip_frames: [left_fr3_hand_tcp, right_fr3_hand_tcp]
+  collision_primitives_file: package://wbdopt_ik_kinematics_plugin/config/dual_fr3_collision_primitives.yaml
   epsilon: 0.001
   regularization: 0.001
   position_weight: 1.0
@@ -65,6 +70,7 @@ dual_arm:
   collision_activation_distance: 0.2
   max_joint_step: 0.1
   max_iterations: 100
+  random_restarts: false
   nominal_joint_names: [
     left_fr3_joint1, left_fr3_joint2, left_fr3_joint3, left_fr3_joint4,
     left_fr3_joint5, left_fr3_joint6, left_fr3_joint7,
@@ -75,3 +81,4 @@ dual_arm:
     0.0, 1.5707963267948966, 0.7853981633974483,
     0.0, -0.7853981633974483, 0.0, -2.356194490192345,
     0.0, 1.5707963267948966, 0.7853981633974483]
+  nominal_tracking_weight: 0.01

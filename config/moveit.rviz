@@ -23,6 +23,7 @@ Panels:
         - /MarkerArray1
         - /MarkerArray1/Topic1
         - /Pose3
+        - /Pose4
       Splitter Ratio: 0.5
     Tree Height: 421
   - Class: rviz_common/Help
@@ -89,6 +90,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_camera_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_d405:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           left_fr3_hand:
             Alpha: 1
             Show Axes: false
@@ -99,6 +110,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           left_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_leftfinger_soft_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -200,7 +216,22 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_fr3_rightfinger_soft_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           rail_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_camera_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_d405:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -215,6 +246,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           right_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_leftfinger_soft_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -312,6 +348,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           right_fr3_rightfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_rightfinger_soft_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -345,7 +386,7 @@ Visualization Manager:
         Interactive Marker Size: 0.10000000149011612
         Joint Violation Color: 255; 0; 255
         Planning Group: dual_arm
-        Query Goal State: true
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -372,6 +413,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_camera_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_d405:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           left_fr3_hand:
             Alpha: 1
             Show Axes: false
@@ -382,6 +433,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           left_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          left_fr3_leftfinger_soft_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -483,7 +539,22 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          left_fr3_rightfinger_soft_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           rail_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_camera_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_d405:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -498,6 +569,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           right_fr3_leftfinger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          right_fr3_leftfinger_soft_finger:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -599,6 +675,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          right_fr3_rightfinger_soft_finger:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           table_surface:
             Alpha: 1
             Show Axes: false
@@ -627,12 +708,18 @@ Visualization Manager:
           Value: true
         exocentric_camera_color_optical_frame:
           Value: true
+        left_camera_mount:
+          Value: true
+        left_d405:
+          Value: true
         left_fr3_hand:
           Value: false
         left_fr3_hand_tcp:
           Value: true
         left_fr3_leftfinger:
           Value: false
+        left_fr3_leftfinger_soft_finger:
+          Value: true
         left_fr3_link0:
           Value: false
         left_fr3_link0_accelerometer_bottom:
@@ -677,16 +764,24 @@ Visualization Manager:
           Value: false
         left_fr3_rightfinger:
           Value: false
+        left_fr3_rightfinger_soft_finger:
+          Value: true
         left_handeye_camera_color_optical_frame:
           Value: true
         rail_link:
           Value: false
+        right_camera_mount:
+          Value: true
+        right_d405:
+          Value: true
         right_fr3_hand:
           Value: false
         right_fr3_hand_tcp:
           Value: true
         right_fr3_leftfinger:
           Value: false
+        right_fr3_leftfinger_soft_finger:
+          Value: true
         right_fr3_link0:
           Value: false
         right_fr3_link0_accelerometer_bottom:
@@ -731,6 +826,8 @@ Visualization Manager:
           Value: false
         right_fr3_rightfinger:
           Value: false
+        right_fr3_rightfinger_soft_finger:
+          Value: true
         right_handeye_camera_color_optical_frame:
           Value: true
         table_surface:
@@ -746,8 +843,6 @@ Visualization Manager:
         world:
           rail_link:
             base_link:
-              egocentric_camera_color_optical_frame:
-                {}
               left_fr3_link0:
                 left_fr3_link0_accelerometer_bottom:
                   {}
@@ -782,12 +877,17 @@ Visualization Manager:
                             left_fr3_link7:
                               left_fr3_link8:
                                 left_fr3_hand:
+                                  left_camera_mount:
+                                    left_d405:
+                                      {}
                                   left_fr3_hand_tcp:
                                     {}
                                   left_fr3_leftfinger:
-                                    {}
+                                    left_fr3_leftfinger_soft_finger:
+                                      {}
                                   left_fr3_rightfinger:
-                                    {}
+                                    left_fr3_rightfinger_soft_finger:
+                                      {}
                                   left_handeye_camera_color_optical_frame:
                                     {}
               right_fr3_link0:
@@ -824,14 +924,21 @@ Visualization Manager:
                             right_fr3_link7:
                               right_fr3_link8:
                                 right_fr3_hand:
+                                  right_camera_mount:
+                                    right_d405:
+                                      {}
                                   right_fr3_hand_tcp:
                                     {}
                                   right_fr3_leftfinger:
-                                    {}
+                                    right_fr3_leftfinger_soft_finger:
+                                      {}
                                   right_fr3_rightfinger:
-                                    {}
+                                    right_fr3_rightfinger_soft_finger:
+                                      {}
                                   right_handeye_camera_color_optical_frame:
                                     {}
+            egocentric_camera_color_optical_frame:
+              {}
             exocentric_camera_color_optical_frame:
               {}
             table_surface:
@@ -893,6 +1000,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_d405:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_fr3_hand:
           Alpha: 1
           Show Axes: false
@@ -903,6 +1020,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         left_fr3_leftfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_fr3_leftfinger_soft_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -1004,7 +1126,22 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_fr3_rightfinger_soft_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rail_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_camera_mount:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_d405:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -1019,6 +1156,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         right_fr3_leftfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_leftfinger_soft_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -1116,6 +1258,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         right_fr3_rightfinger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_fr3_rightfinger_soft_finger:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -1250,7 +1397,27 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /dual_arm_controller_wbc/delayed_target_pose/left
+        Value: /right_cartesian_controller/target_pose
+      Value: true
+    - Alpha: 1
+      Axes Length: 0.10000000149011612
+      Axes Radius: 0.019999999552965164
+      Class: rviz_default_plugins/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Axes
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /left_cartesian_controller/target_pose
       Value: true
   Enabled: true
   Global Options:
@@ -1270,25 +1437,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.1196075677871704
+      Distance: 1.5019158124923706
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.4439427852630615
-        Y: 0.3225395083427429
-        Z: 0.5147004723548889
+        X: 0.2660829424858093
+        Y: 0.08007544279098511
+        Z: 0.5891159176826477
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.37979656457901
+      Pitch: 0.44979649782180786
       Target Frame: rail_link
       Value: Orbit (rviz_default_plugins)
-      Yaw: 4.605058670043945
+      Yaw: 5.770060062408447
     Saved: ~
 Window Geometry:
   Displays:
